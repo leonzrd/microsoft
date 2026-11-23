@@ -1,0 +1,597 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Microsoft account</title>
+	<style type="text/css">* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1b1b1b;
+
+    background:
+        radial-gradient(circle at 12% 18%, rgba(241,224,220,.65), transparent 42%),
+        radial-gradient(circle at 82% 14%, rgba(220,237,226,.65), transparent 42%),
+        radial-gradient(circle at 85% 88%, rgba(242,238,211,.70), transparent 45%),
+        #f4f4f4;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.wrapper {
+    width: 440px;
+    max-width: 100%;
+}
+
+.card {
+    background: #ffffff;
+    padding: 44px;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.16),
+        0 1px 2px rgba(0,0,0,.08);
+}
+
+
+/* MICROSOFT BRAND */
+
+.microsoft {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/*
+    Single element logo.
+    No empty spans for GoPhish/CKEditor to remove.
+*/
+.ms-logo {
+    width: 23px;
+    height: 23px;
+    margin-right: 7px;
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(#f25022 0 0) 0 0 / 11px 11px no-repeat,
+        linear-gradient(#7fba00 0 0) 12px 0 / 11px 11px no-repeat,
+        linear-gradient(#00a4ef 0 0) 0 12px / 11px 11px no-repeat,
+        linear-gradient(#ffb900 0 0) 12px 12px / 11px 11px no-repeat;
+}
+
+.ms-text {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #666666;
+    letter-spacing: -0.35px;
+}
+
+
+/* HEADINGS */
+
+h1 {
+    margin: 0 0 16px 0;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    color: #1b1b1b;
+}
+
+
+/* INPUTS */
+
+.input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #666666;
+    padding: 7px 0 8px 0;
+    margin: 0 0 16px 0;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+
+    color: #1b1b1b;
+    background: transparent;
+    outline: none;
+}
+
+.input:focus {
+    border-bottom: 2px solid #0067b8;
+}
+
+.input::placeholder {
+    color: #666666;
+    opacity: 1;
+}
+
+
+/* TEXT */
+
+.small {
+    margin: 12px 0;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+a {
+    color: #0067b8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* BUTTON */
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.primary {
+    min-width: 108px;
+    padding: 8px 18px;
+
+    border: 0;
+
+    background: #0067b8;
+    color: #ffffff;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+
+    cursor: pointer;
+}
+
+.primary:hover {
+    background: #005da6;
+}
+
+.primary:active {
+    background: #005293;
+}
+
+
+/* SIGN-IN OPTIONS */
+
+.options {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 50px;
+
+    margin-top: 20px;
+    padding: 0 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.16),
+        0 1px 2px rgba(0,0,0,.08);
+
+    font-size: 15px;
+    color: #1b1b1b;
+}
+
+.key-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.key-icon img {
+    width: 28px;
+    height: 28px;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* PASSWORD PAGE */
+
+.account-row {
+    display: flex;
+    align-items: center;
+
+    height: 28px;
+
+    margin:
+        -3px
+        0
+        11px
+        -4px;
+
+    font-size: 14px;
+}
+
+.back {
+    width: 28px;
+    height: 28px;
+    margin-right: 5px;
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: #666666;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 24px;
+
+    cursor: pointer;
+}
+.account-email {
+    display: block;
+
+    max-width: 290px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-size: 14px;
+    line-height: 20px;
+}
+
+#step2 {
+    display: none;
+}
+
+
+/* FOOTER */
+
+.footer {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 14px;
+
+    padding:
+        0
+        20px
+        12px
+        20px;
+
+    font-size: 11px;
+    color: #333333;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    body {
+        background: #ffffff;
+    }
+
+    .main {
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .card {
+        box-shadow: none;
+        padding: 32px 24px;
+    }
+
+    .options {
+        box-shadow: none;
+        border-top: 1px solid #dddddd;
+    }
+}
+	</style>
+</head>
+<body>
+<div class="main">
+<div class="wrapper"><!-- LOGIN CARD -->
+<div class="card"><!-- MICROSOFT -->
+<div class="microsoft">
+<div class="ms-logo"> </div>
+
+<div class="ms-text">Microsoft</div>
+</div>
+<!-- STEP 1 -->
+
+<div id="step1">
+<h1>Sign in</h1>
+<!--
+        No name attribute.
+        The email address is NOT submitted to GoPhish.
+    --><input autocomplete="off" class="input" id="emailInput" placeholder="Email, phone, or Skype" type="text"/>
+<div class="small">No account? <a href="#" onclick="return false;"> Create one! </a></div>
+
+<div class="small"><a href="#" onclick="return false;">Can&#39;t access your account? </a></div>
+
+<div class="actions"><button class="primary" id="nextButton" type="button">Next</button></div>
+</div>
+<!-- STEP 2 -->
+
+<div id="step2"><!-- ACCOUNT ROW -->
+<div class="account-row"><button class="back" id="backButton" type="button">←</button>
+<div class="account-email" id="emailDisplay"> </div>
+</div>
+
+<h1>Enter password</h1>
+<!--
+        No name attribute.
+        Password is NOT submitted to GoPhish.
+    --><input autocomplete="off" class="input" id="passwordInput" placeholder="Password" type="password"/>
+<div class="small"><a href="#" onclick="return false;">Forgotten my password </a></div>
+
+<div class="small" style="margin-top:20px;"><a href="#" id="anotherAccount">Sign in with another account </a></div>
+
+<form action="#" id="simForm" method="GET" style="margin:0;"><!--
+            Only this harmless marker is submitted.
+        --><input type="hidden" value="yes"/>
+<div class="actions"><button class="primary" type="submit">Sign in</button></div>
+</form>
+</div>
+</div>
+<!-- SIGN-IN OPTIONS -->
+
+<div class="options" id="optionsBox">
+<div class="key-icon"><img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAACyklEQVR4nO2WMUgjURCG/3dEbEQMKHZJEFHEJqCICsLEZlkQ04qlnWDhgiBoEUEkILGzTkDBwiYLQkDQFGIVhV0Rg2kkposQYxW1kP+6kJhkTXKe19zAFG9mZ759+2bmrSKJn5RfP0r7F0CXk7NQKDCZTCKXyyGfz6O7uxsejweapqG/v1+1A1SNzvD4+JjRaBTv7+9wuVwYHBxELpdDqVSCUgqBQACGYaCrq6s1MMkajUajFBGGQiHe3t6y0pfNZhmLxahpGpeXl1kv3klrDBcXFxQRHh4eOibLZDLUNI3hcLglaI1hYWGBm5ubJInn52eGw2FeX1/XTXp2dkYRaej/Enh5ecnZ2VkWi0WSRCQSoYhwfn6+YULDMLi9vd00sKot7u/vMTQ0hJ6eHgUAExMTUEphcnKyYQ2MjY0hnU43XTNVbfH09ITe3t7yemZmRiWTSccEfX19KBQKTQOrduhyufD29tZ0MAC8vr6is7OzPeDIyAgymUxLwJubG3g8nvaA09PTKJVKODk5aXqiT01NIZ1OwzTN5mI+V9HBwQHn5uaYz+ebrrzT01MGAgHG4/EvY+oaNzY2uLi4yIeHh7oJ7u7uuL6+Ttu2y/5EIkERoWmajtC6w3tnZ0ft7+9zaWkJ4+PjHB0dxfDwMLLZLK6urmBZFgBA1/VyjK7rCgB3d3cBgMFgsO6MbXhbrKysKBFhPB7H+fk5jo6O4Ha7MTAwgLW1NUQikZoYXdfVx8cH9/b2GkNbmYOVKiKs1Eqf0+dtG2hZFi3LYiwWqwGShGmaFBEmEokqn+MF7CR+v18BwMvLCwHAtm0CgNvthtfrVcFgUKVSKaZSqaqzbhv4WQzDAACICEKhEACgo6Oj5rk/BoqIEhEAwNbW1pfN/207BAClFGzbxurqKgHg8fERfr//7wF9Ph+KxWJ57fV64fP5ql+K/P8j/L3yG2nOJn2Oi3yMAAAAAElFTkSuQmCC"/></div>
+
+<div>Sign-in options</div>
+</div>
+</div>
+</div>
+<!-- FOOTER -->
+
+<div class="footer"><span>Terms of use </span> <span> Privacy &amp; cookies </span> <span> ••• </span></div>
+<script>
+
+/*
+    Simple ES5-style JavaScript for compatibility.
+*/
+
+var step1 =
+    document.getElementById("step1");
+
+var step2 =
+    document.getElementById("step2");
+
+var emailInput =
+    document.getElementById("emailInput");
+
+var emailDisplay =
+    document.getElementById("emailDisplay");
+
+var passwordInput =
+    document.getElementById("passwordInput");
+
+var nextButton =
+    document.getElementById("nextButton");
+
+var backButton =
+    document.getElementById("backButton");
+
+var anotherAccount =
+    document.getElementById("anotherAccount");
+
+var optionsBox =
+    document.getElementById("optionsBox");
+
+var simForm =
+    document.getElementById("simForm");
+
+
+
+function showPasswordScreen() {
+
+    var value =
+        emailInput.value.replace(/^\s+|\s+$/g, "");
+
+
+    if (value === "") {
+
+        emailInput.focus();
+
+        return false;
+
+    }
+
+
+    emailDisplay.innerHTML =
+        value.replace(
+            /&/g,
+            "&amp;"
+        ).replace(
+            /</g,
+            "&lt;"
+        ).replace(
+            />/g,
+            "&gt;"
+        );
+
+
+    step1.style.display =
+        "none";
+
+
+    step2.style.display =
+        "block";
+
+
+    optionsBox.style.display =
+        "none";
+
+
+    window.setTimeout(
+        function () {
+
+            passwordInput.focus();
+
+        },
+        50
+    );
+
+
+    return false;
+}
+
+
+
+function showEmailScreen() {
+
+    step2.style.display =
+        "none";
+
+
+    step1.style.display =
+        "block";
+
+
+    optionsBox.style.display =
+        "flex";
+
+
+    window.setTimeout(
+        function () {
+
+            emailInput.focus();
+
+        },
+        50
+    );
+
+
+    return false;
+}
+
+
+
+/* NEXT */
+
+nextButton.onclick =
+    showPasswordScreen;
+
+
+
+/* ENTER ON EMAIL */
+
+emailInput.onkeydown =
+    function (event) {
+
+        event =
+            event || window.event;
+
+
+        if (
+            event.keyCode === 13 ||
+            event.key === "Enter"
+        ) {
+
+            if (event.preventDefault) {
+
+                event.preventDefault();
+
+            }
+
+
+            showPasswordScreen();
+
+
+            return false;
+
+        }
+
+    };
+
+
+
+/* BACK */
+
+backButton.onclick =
+    showEmailScreen;
+
+
+
+/* ANOTHER ACCOUNT */
+
+anotherAccount.onclick =
+    function (event) {
+
+        event =
+            event || window.event;
+
+
+        if (event.preventDefault) {
+
+            event.preventDefault();
+
+        }
+
+
+        emailInput.value =
+            "";
+
+
+        passwordInput.value =
+            "";
+
+
+        showEmailScreen();
+
+
+        return false;
+
+    };
+
+
+/* SAFE SIMULATION SUBMIT */
+
+simForm.onsubmit =
+    function (event) {
+
+        event =
+            event || window.event;
+
+        if (event.preventDefault) {
+            event.preventDefault();
+        }
+
+        passwordInput.value = "";
+        window.location.href = "awareness.html";
+        return false;
+    };
+
+</script>
+
+</body></html>
