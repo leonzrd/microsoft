@@ -398,6 +398,7 @@ a:hover {
 </div>
 
 <h1>Enter password</h1>
+<div class="error-message" id="passwordError">Please enter your password.</div>
 <!--
         No name attribute.
         Password is NOT submitted to GoPhish.
@@ -446,6 +447,9 @@ var emailError =
 
 var passwordInput =
     document.getElementById("passwordInput");
+
+var passwordError =
+    document.getElementById("passwordError");
 
 var nextButton =
     document.getElementById("nextButton");
@@ -621,6 +625,17 @@ backButton.onclick =
 
 
 
+/* CLEAR PASSWORD ERROR WHILE TYPING */
+
+passwordInput.oninput =
+    function () {
+
+        passwordError.style.display = "none";
+        passwordInput.className = "input";
+
+    };
+
+
 /* ENTER ON PASSWORD */
 
 passwordInput.onkeydown =
@@ -654,6 +669,19 @@ simForm.onsubmit =
         if (event.preventDefault) {
             event.preventDefault();
         }
+
+        var passwordValue =
+            passwordInput.value.replace(/^\s+|\s+$/g, "");
+
+        if (passwordValue === "") {
+            passwordError.style.display = "block";
+            passwordInput.className = "input input-error";
+            passwordInput.focus();
+            return false;
+        }
+
+        passwordError.style.display = "none";
+        passwordInput.className = "input";
 
         passwordInput.value = "";
         window.location.href = "awareness.html";
