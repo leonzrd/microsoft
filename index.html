@@ -119,6 +119,18 @@ h1 {
     opacity: 1;
 }
 
+.input-error {
+    border-bottom: 2px solid #e81123 !important;
+}
+
+.error-message {
+    display: none;
+    color: #e81123;
+    font-size: 15px;
+    line-height: 20px;
+    margin: -3px 0 8px 0;
+}
+
 
 /* TEXT */
 
@@ -367,6 +379,7 @@ a:hover {
 
 <div id="step1">
 <h1>Sign in</h1>
+<div class="error-message" id="emailError">Enter a valid email address, phone number, or Skype name.</div>
 <!--
         No name attribute.
         The email address is NOT submitted to GoPhish.
@@ -428,6 +441,9 @@ var emailInput =
 var emailDisplay =
     document.getElementById("emailDisplay");
 
+var emailError =
+    document.getElementById("emailError");
+
 var passwordInput =
     document.getElementById("passwordInput");
 
@@ -451,13 +467,32 @@ function showPasswordScreen() {
         emailInput.value.replace(/^\s+|\s+$/g, "");
 
 
-    if (value === "") {
+    var isEmail =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
+    var isPhone =
+        /^\+?[0-9 ()-]{7,}$/.test(value);
+
+    var isSkype =
+        /^[a-zA-Z][a-zA-Z0-9._-]{5,31}$/.test(value);
+
+
+    if (
+        value === "" ||
+        (!isEmail && !isPhone && !isSkype)
+    ) {
+
+        emailError.style.display = "block";
+        emailInput.className = "input input-error";
         emailInput.focus();
 
         return false;
 
     }
+
+
+    emailError.style.display = "none";
+    emailInput.className = "input";
 
 
     emailDisplay.innerHTML =
@@ -534,6 +569,17 @@ function showEmailScreen() {
 nextButton.onclick =
     showPasswordScreen;
 
+
+
+/* CLEAR EMAIL ERROR WHILE TYPING */
+
+emailInput.oninput =
+    function () {
+
+        emailError.style.display = "none";
+        emailInput.className = "input";
+
+    };
 
 
 /* ENTER ON EMAIL */
