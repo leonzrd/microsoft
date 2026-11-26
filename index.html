@@ -204,6 +204,25 @@ a:hover {
 
     font-size: 15px;
     color: #1b1b1b;
+
+    cursor: pointer;
+    transition:
+        background-color 140ms ease,
+        box-shadow 140ms ease,
+        transform 140ms ease;
+}
+
+.options:hover {
+    background: #f7f7f7;
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.18),
+        0 2px 4px rgba(0,0,0,.10);
+    transform: translateY(-1px);
+}
+
+.options:active {
+    background: #eeeeee;
+    transform: translateY(0);
 }
 
 .key-icon {
