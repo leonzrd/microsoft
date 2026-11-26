@@ -14,11 +14,12 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     color: #1b1b1b;
 
-    background:
-        radial-gradient(circle at 12% 18%, rgba(241,224,220,.65), transparent 42%),
-        radial-gradient(circle at 82% 14%, rgba(220,237,226,.65), transparent 42%),
-        radial-gradient(circle at 85% 88%, rgba(242,238,211,.70), transparent 45%),
-        #f4f4f4;
+    background-image: url("login-background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #f4f4f4;
 
     min-height: 100vh;
     display: flex;
@@ -342,7 +343,12 @@ a:hover {
 @media (max-width: 500px) {
 
     body {
-        background: #ffffff;
+        background-image: url("login-background.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #f4f4f4;
     }
 
     .main {
